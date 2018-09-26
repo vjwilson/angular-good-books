@@ -1,1 +1,90 @@
-/* You can add global styles to this file, and also import other style files */
+// Colors
+$bg-color: #f4f2e8;
+
+// Typography
+$base-font-family: "Roboto", sans-serif;
+
+// Font Sizes
+$base-font-size: 16px;
+
+// Layout
+$layout-header-height: 70px;
+$layout-footer-height: 70px;
+$page-sidebar-width: 250px;
+$wide-width: 1400px;
+
+body {
+  box-sizing: border-box;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.layout-header {
+  background-color: $bg-color;
+  grid-area: header;
+}
+
+.layout-header-inner {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  margin: 0 auto;
+  max-width: $wide-width;
+}
+
+.layout-main {
+  grid-area: main;
+}
+
+.layout-footer {
+  background-color: $bg-color;
+  grid-area: footer;
+}
+
+.layout-footer-inner {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  margin: 0 auto;
+  max-width: $wide-width;
+}
+
+.layout {
+  display: grid;
+  height: 100vh;
+
+  grid-template-rows:     $layout-header-height 1fr $layout-footer-height;
+  grid-template-columns:  1fr;
+  grid-template-areas:    "header"
+                          "main"
+                          "footer";
+}
+
+.page-main {
+  grid-area: page-main;
+}
+
+.page-sidebar {
+  background-color: #333;
+  color: #fff;
+  grid-area: page-sidebar;
+}
+
+.page-content {
+  display: grid;
+  grid-template-rows:     1fr;
+  grid-template-columns:  1fr $page-sidebar-width;
+  grid-template-areas:    "page-main page-sidebar";
+  height: 100%;
+  margin: 0 auto;
+  max-width: $wide-width;
+}
+
